@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Jiajie Mei">
+<link rel="canonical" href="https://jiajiemei-hep.github.io/notes/cosmological_helicity_reference_spinor_note_v2.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cosmological vs. Amplitude Spinor Helicity | Jiajie Mei">
+<meta property="og:description" content="A comparison of cosmological and amplitude spinor-helicity setups, reference spinors, and gauge conditions.">
+<meta property="og:url" content="https://jiajiemei-hep.github.io/notes/cosmological_helicity_reference_spinor_note_v2.html">
+<title>Cosmological vs. Amplitude Spinor Helicity | Jiajie Mei</title>
+<meta name="description" content="A comparison of the spinor-helicity setup for flat-space amplitudes and fixed-time cosmological correlators, including little groups, reference spinors, and gauge conditions.">
+<meta name="note:title" content="Cosmological vs. Amplitude Spinor Helicity">
+<meta name="note:summary" content="Compares the spinor-helicity setup for flat-space amplitudes and cosmological correlators: null four-momentum versus spatial momentum with an auxiliary null uplift, distinct little groups, and different roles for reference spinors and gauge conditions. Context for AI-assisted calculations.">
+<meta name="note:tags" content="Cosmological spinor helicity, Amplitude spinor helicity, Gauge choice">
+<style>
+body{margin:0;background:#f6f7fa;color:#17191f;font-family:Georgia,serif;line-height:1.55}
+main{max-width:920px;margin:32px auto;background:#fff;padding:42px 50px;border:1px solid #dde2ea}
+h1,h2,h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif} h3{font-size:1.05rem;margin-top:24px} h1{font-size:2rem;margin:0 0 8px} h2{font-size:1.25rem;margin-top:32px;border-top:1px solid #e1e4ea;padding-top:10px}
+.sub{color:#626975;margin-bottom:24px}.box{background:#eef2ff;border-left:4px solid #304a8a;padding:14px 18px;margin:18px 0}.warn{background:#fff8e8;border-left-color:#ae7800}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.94rem}th,td{border:1px solid #dfe3ea;padding:10px;vertical-align:top}th{background:#f1f3f7;text-align:left;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:#264f9d;text-decoration:none}.small{color:#666;font-size:.9rem}
+.equation{max-width:100%;overflow-x:auto;overflow-y:hidden}
+.site-back{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:.85rem;margin:0 0 24px}.site-back a:hover{text-decoration:underline}
+@media(max-width:700px){main{margin:0;padding:24px 18px;border:0}h1{font-size:1.65rem}table{display:block;overflow-x:auto}mjx-container[jax="SVG"][display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body><main>
+<p class="site-back"><a href="./">← All notes</a></p>
+<h1>Cosmological vs. Amplitude Spinor Helicity</h1>
+<div class="sub">Setup, reference spinors, and gauge conditions · A note for the scalar-QED all-plus project</div>
+
+<div class="box"><b>The central distinction: cosmological SH vs. amplitude SH.</b> A flat-space massless amplitude starts from an on-shell null four-momentum and its massless little group. A fixed-time cosmological correlator starts from a physical spatial momentum \(\mathbf k\), whose helicity is defined by \(SO(2)_{\mathbf k}\). The null four-vector \(P^\mu=(k,\mathbf k)\) used to write cosmological spinors is an auxiliary uplift. Its formal similarity to amplitude spinor helicity does not make the two physical setups identical: the role of a reference spinor, and whether changing it is a gauge transformation, must be established from the field, boundary observable, and gauge or Ward identities.</div>
+
+<div class="box"><b>Why I wrote this note.</b> In AI-assisted calculations for this project, I found that general online accounts often led an assistant to carry flat-space amplitude assumptions into the cosmological setup. This note gives the specific context needed to choose the helicity basis, polarization, and gauge conditions before calculating. Its formulas and conclusions still require explicit checks.</div>
+
+<section aria-label="Technical note">
+<h2>1. Helicity from the cosmological little group</h2>
+<p>For a homogeneous and isotropic spatial slice the kinematic group is spatial \(ISO(3)\). At fixed nonzero momentum \(\mathbf k\), the subgroup that leaves \(\mathbf k\) invariant is \(SO(2)_{\mathbf k}\). Helicity is the corresponding one-dimensional representation label:</p>
+
+<div class="equation">
+\[
+R_{\mathbf k}(\theta)X_h(\mathbf k)=e^{ih\theta}X_h(\mathbf k).
+\]
+</div>
+
+<p>For a spin-one spatial vector this gives the decomposition</p>
+
+\[
+J_i(\mathbf k)=J^+(\mathbf k)\,\xi_i^+(\mathbf k)+J^0(\mathbf k)\,\hat k_i+J^-(\mathbf k)\,\xi_i^-(\mathbf k),
+\]
+
+<p>with</p>
+
+\[
+R_{\mathbf k}(\theta)\xi_i^{\pm}=e^{\pm i\theta}\xi_i^{\pm},
+\qquad
+\mathbf k\!\cdot\!\boldsymbol\xi^{\pm}=0.
+\]
+
+<p>The longitudinal direction \(\hat k_i\) is invariant under the same rotation and therefore has \(h=0\). Thus the three spatial components are the \(h=+1,0,-1\) irreps of \(SO(2)_{\mathbf k}\).</p>
+
+<p>This is the logic behind the general decomposition in Lee–Baumann–Pimentel,
+\[
+\sigma_{i_1\cdots i_n\eta\cdots\eta}
+=\sum_\lambda \sigma^\lambda_{n,s}\,\varepsilon^\lambda_{i_1\cdots i_n},
+\]
+where \(\lambda\) is the helicity component of the spatial spin.</p>
+
+<h2>2. Massive versus massless spin one</h2>
+<table>
+<tr><th></th><th>Massive spin-1</th><th>Massless gauge spin-1</th></tr>
+<tr><td>Fixed-\(\mathbf k\) helicities</td><td>\(+1,0,-1\)</td><td>\(+1,0,-1\) at the level of the spatial-vector decomposition</td></tr>
+<tr><td>Physical spectrum</td><td>All three are physical</td><td>The propagating helicities are \(\pm1\); longitudinal \(h=0\) is gauge/constraint data</td></tr>
+<tr><td>\(c_+\xi^+ + c_0\hat k\)</td><td>A genuine mixed-helicity state</td><td>Can be a non-helicity gauge representative of the same physical \(h=+1\) class</td></tr>
+</table>
+
+<p>This gives a useful check: imposing a component condition such as \(A_z=0\) cannot itself define helicity. An analogous condition can be imposed for a massive vector while leaving a genuine \(h=0\) admixture. The helicity label comes from \(SO(2)_{\mathbf k}\), not from the component condition.</p>
+
+<h2>3. Flat-space versus cosmological helicity</h2>
+<table>
+<tr><th></th><th>4d flat-space massless amplitude</th><th>Cosmological / fixed-time boundary problem</th></tr>
+<tr><td>Starting symmetry</td><td>Poincaré \(ISO(1,3)\)</td><td>Spatial \(ISO(3)\)</td></tr>
+<tr><td>Momentum fixed</td><td>Null four-momentum \(p^\mu\)</td><td>Three-momentum \(\mathbf k\neq0\)</td></tr>
+<tr><td>Little group</td><td>\(ISO(2)=SO(2)\ltimes\mathbb R^2\)</td><td>\(SO(2)_{\mathbf k}\)</td></tr>
+<tr><td>Helicity definition</td><td>Charge under the rotational \(SO(2)\) part</td><td>Charge under the full little group \(SO(2)_{\mathbf k}\)</td></tr>
+<tr><td>Extra generators</td><td>Two null rotations, the \(\mathbb R^2\) part</td><td>None</td></tr>
+<tr><td>Gauge redundancy</td><td>The noncompact little-group action on polarization representatives appears as a gauge shift</td><td>Gauge redundancy is separate from the \(SO(2)\) little group</td></tr>
+</table>
+
+<div class="warn box">The formal similarity of cosmological spinor-helicity expressions to flat-space amplitudes should therefore not be used as the definition of cosmological helicity. The intrinsic definition is the \(SO(2)_{\mathbf k}\) eigenvalue.</div>
+
+<h2>4. Where the reference spinor actually comes from</h2>
+
+<p>It is useful to separate the <em>physical</em> definition of cosmological helicity from a second, auxiliary construction which closely resembles flat-space spinor helicity.</p>
+
+<h3>4.1 The auxiliary null uplift</h3>
+
+<p>Given a physical spatial momentum \(\mathbf k\), with \(k=|\mathbf k|\), cosmological spinor-helicity introduces the null four-vector</p>
+
+\[
+P^\mu=(k,\mathbf k),
+\qquad
+P^2=-k^2+\mathbf k^2=0,
+\]
+
+<p>and factorizes it as</p>
+
+\[
+P_{\alpha\dot\alpha}
+=
+\lambda_\alpha\bar\lambda_{\dot\alpha}.
+\]
+
+<p>The important point is that \(P^\mu\) is an <b>auxiliary null uplift</b> of the physical three-momentum. Its nullness is kinematic: it follows from setting its zeroth component equal to \(k=|\mathbf k|\). It is not the statement that the cosmological excitation is a physical four-dimensional massless particle. In particular, the same null uplift of \(\mathbf k\) can be introduced when the bulk field is massive.</p>
+
+<h3>4.2 Solving the auxiliary polarization equations</h3>
+
+<p>Now ask for a complex null vector associated with this auxiliary \(P^\mu\), satisfying</p>
+
+\[
+P\!\cdot\!\epsilon=0,
+\qquad
+\epsilon^2=0.
+\]
+
+<p>Write a null bispinor as a rank-one matrix,</p>
+
+\[
+\epsilon_{\alpha\dot\alpha}
+=
+a_\alpha b_{\dot\alpha}.
+\]
+
+<p>The condition \(\epsilon^2=0\) is then automatic, while transversality gives</p>
+
+\[
+P\!\cdot\!\epsilon
+\propto
+\langle\lambda a\rangle
+[\bar\lambda b]
+=0.
+\]
+
+<p>There are two branches. On the \(+\) branch one takes</p>
+
+\[
+[\bar\lambda b]=0
+\quad\Longrightarrow\quad
+b_{\dot\alpha}\propto\bar\lambda_{\dot\alpha}.
+\]
+
+<p>The other spinor \(a_\alpha\) remains undetermined. Calling this arbitrary independent spinor \(\eta_\alpha\), and dividing by \(\langle\eta\lambda\rangle\) to remove the irrelevant rescaling \(\eta\to c\eta\), gives</p>
+
+\[
+\boxed{
+\epsilon^+_{\alpha\dot\alpha}(\eta)
+=
+\frac{\eta_\alpha\bar\lambda_{\dot\alpha}}
+{\langle\eta\lambda\rangle}.
+}
+\]
+
+<p>Similarly, the opposite branch gives</p>
+
+\[
+\epsilon^-_{\alpha\dot\alpha}(\bar\eta)
+=
+\frac{\lambda_\alpha\bar\eta_{\dot\alpha}}
+{[\bar\lambda\bar\eta]}.
+\]
+
+<div class="box"><b>This is the origin of the reference spinor.</b> The spinor \(\eta\) appears because the auxiliary equations \(P\!\cdot\!\epsilon=0\) and \(\epsilon^2=0\) do not uniquely determine \(\epsilon\). Its appearance is therefore a piece of spinor-helicity kinematics; one does not need to invoke gauge invariance in order to derive it.</div>
+
+<p>Indeed, for two choices \(\eta\) and \(\eta'\), two-dimensional spinor algebra gives</p>
+
+\[
+\epsilon^+(\eta')-\epsilon^+(\eta)
+=
+C(\eta,\eta')\,
+\lambda_\alpha\bar\lambda_{\dot\alpha}
+=
+C(\eta,\eta')\,P_{\alpha\dot\alpha}.
+\]
+
+<p>This relation is purely algebraic. What it means physically depends on the problem.</p>
+
+<table>
+<tr><th></th><th>Flat-space massless amplitude</th><th>Cosmological spinor-helicity</th></tr>
+<tr><td>Vector being factorized</td><td>The physical null momentum \(p^\mu\)</td><td>The auxiliary null uplift \(P^\mu=(k,\mathbf k)\)</td></tr>
+<tr><td>Why \(\eta\) appears</td><td>Solving \(p\!\cdot\!\epsilon=0,\ \epsilon^2=0\)</td><td>Solving \(P\!\cdot\!\epsilon=0,\ \epsilon^2=0\)</td></tr>
+<tr><td>Algebraic change</td><td>\(\Delta\epsilon\propto p\)</td><td>\(\Delta\epsilon\propto P\)</td></tr>
+<tr><td>Immediate physical interpretation</td><td>For a massless gauge particle this is precisely a gauge shift</td><td>None follows merely from the null uplift; \(P\) is auxiliary</td></tr>
+<tr><td>Does the construction require a massless bulk field?</td><td>Yes, because \(p\) is the physical massless momentum</td><td><b>No.</b> \(P\) is built only from \(\mathbf k\), so the auxiliary construction can also be used to package/project massive spinning correlators</td></tr>
+</table>
+
+<p>Thus the formal similarity to amplitudes should not be over-interpreted. In flat-space amplitudes the reference-spinor ambiguity coincides with the gauge redundancy because the null vector being used is the physical momentum of a massless gauge particle. In cosmology the same algebra first arises from an auxiliary null embedding of the boundary three-momentum. If the bulk field is massless and gauge invariant, there may <em>also</em> be a genuine gauge interpretation, but that is additional physical input rather than the origin of \(\eta\). For a massive spin-one field there is no corresponding gauge redundancy: the same kind of \(\eta\)-dependent auxiliary projection can simply select a different linear combination of the physical helicity components. The auxiliary \(\epsilon(\eta)\) should not by itself be confused with a complete massive bulk mode, whose time dependence is fixed separately by the massive equations of motion.</p>
+
+<h3>4.3 Physical cosmological helicity is a different construction</h3>
+
+<p>The physical helicity label should instead be defined directly from the spatial little group. At fixed nonzero \(\mathbf k\),</p>
+
+\[
+SO(2)_{\mathbf k}:\qquad
+R_{\mathbf k}(\theta)\,\xi_i^{h}
+=
+e^{ih\theta}\xi_i^{h}.
+\]
+
+<p>For spin one, the \(h=\pm1\) eigenvectors can equivalently be characterized as the circular transverse vectors,</p>
+
+\[
+\mathbf k\cdot\boldsymbol\xi^\pm=0,
+\qquad
+i\,\epsilon_{ijk}\hat k_j\xi_k^\pm
+=
+\pm \xi_i^\pm,
+\]
+
+<p>while the longitudinal vector \(\hat k_i\) is the \(h=0\) irrep. In cosmological spinors these intrinsic helicity vectors are</p>
+
+\[
+\boxed{
+\xi^+_{\alpha\beta}
+=
+\frac{\bar\lambda_\alpha\bar\lambda_\beta}{2k},
+\qquad
+\xi^-_{\alpha\beta}
+=
+\frac{\lambda_\alpha\lambda_\beta}{2k}.
+}
+\]
+
+<p>No reference spinor is needed in this definition. This is precisely the intrinsically boundary construction emphasized in Sec. 3.4 of arXiv:2005.04234.</p>
+
+<h3>4.4 How the two constructions meet</h3>
+
+<p>Cosmology has a preferred time direction, which allows the dotted index of the auxiliary four-dimensional expression to be converted into an undotted index. In the family \(\epsilon^+(\eta)\), the special choice</p>
+
+\[
+\eta=\bar\lambda
+\]
+
+<p>sets the auxiliary zero component to zero and gives</p>
+
+\[
+\epsilon^+_{\alpha\beta}(\bar\lambda)
+=
+\frac{\bar\lambda_\alpha\bar\lambda_\beta}{2k}
+=
+\xi^+_{\alpha\beta}.
+\]
+
+<p>Thus the special \(\eta=\bar\lambda\) member of the auxiliary family happens to coincide with the intrinsic definite-helicity polarization. A different choice, such as the common reference \(\eta=\lambda_u\), stays within the auxiliary family but no longer coincides with the pure spatial \(SO(2)_{\mathbf k}\) eigenvector.</p>
+
+<div class="warn box"><b>Logical order.</b>
+\[
+SO(2)_{\mathbf k}\ \Longrightarrow\ \xi^\pm
+\]
+is the physical definition of cosmological helicity. By contrast,
+\[
+\mathbf k\ \Longrightarrow\ P^\mu=(k,\mathbf k)\ \Longrightarrow\
+P\!\cdot\!\epsilon=\epsilon^2=0\ \Longrightarrow\ \epsilon(\eta)
+\]
+is an auxiliary spinor-helicity construction. The second construction is analogous to the amplitude construction, but in cosmology its existence does not by itself assert a physical gauge equivalence.</div>
+
+<h2>5. The common-reference choice</h2>
+<p>In the scalar-QED calculation we choose the scalar spinor as reference,</p>
+
+\[
+\epsilon^+_{a,\alpha\beta}(u)
+=
+\frac{\lambda_{u\alpha}\bar\lambda_{a\beta}}{\langle ua\rangle}.
+\]
+
+<p>Relative to the definite-helicity polarization \(\xi_a^+\), Schouten gives</p>
+
+\[
+\epsilon^+_{a,\alpha\beta}(u)-\xi^+_{a,\alpha\beta}
+=
+-D_{a|u}\lambda_{a\alpha}\bar\lambda_{a\beta}.
+\]
+
+<p>Thus</p>
+
+\[
+\epsilon_a^+(u)
+=
+\underbrace{\xi_a^+}_{h=+1}
++
+\underbrace{\text{longitudinal term}}_{h=0}.
+\]
+
+<p>The common-reference polarization is therefore not itself the intrinsic pure \(SO(2)_{\mathbf k}\) helicity vector. Its role is computational: it selects a particularly useful member of the auxiliary \(\epsilon(\eta)\) family and simplifies the bulk vertices. For the massless gauge theory studied here, the extra longitudinal contribution is subsequently controlled by the gauge/Ward identity, which relates the common-reference projection back to the definite-helicity coefficient.</p>
+
+<h3>Why a vanishing CR result is not a helicity statement</h3>
+<p>A vanishing result in the common-reference gauge need not imply that the definite-helicity coefficient vanishes. The CR polarization selects a particular linear combination</p>
+
+\[
+\epsilon^{\rm CR}\!\cdot J
+=
+J^{+}+\beta(\mathbf k)\,J^{0},
+\]
+
+<p>and this combination may vanish even when the individual helicity components do not. Such a cancellation is therefore a property of the chosen polarization representative, not a statement that the irreducible \(h=+1\) component itself vanishes.</p>
+
+<p>The same algebraic point is already clear for a massive spin-one field. The null uplift \(P=(k,\mathbf k)\) and the associated auxiliary \(\epsilon(\eta)\) construction still exist because they depend only on the boundary momentum, not on the bulk mass. Using such an auxiliary vector to project the massive correlator can select a particular combination of the physical \(h=+1\) and \(h=0\) components, and that combination may vanish without either helicity coefficient being zero. In the massive theory this is not a gauge statement at all; it is simply a statement about the chosen projection. The massless gauge theory has the additional Ward identity that relates its longitudinal contribution to lower-point/gauge data.</p>
+
+\[
+\boxed{
+\Psi_{\rm CR}=0
+\quad\not\Rightarrow\quad
+\Psi_{h=+1}=0 .
+}
+\]
+
+<div class="box"><b>Important:</b> this does not mean that the common-reference gauge is an illegal gauge. It means only that its raw spatial polarization is not itself the irreducible \(h=+1\) boundary vector used to define the helicity correlator.</div>
+
+<h2>6. What we are actually computing</h2>
+<p>The boundary observable should be defined before introducing a reference spinor:</p>
+
+\[
+\Psi^\phi_{\mathcal P_n}(\mathbf p_u,\mathbf p_v)
+=
+\frac{1}{e^n}
+\left\langle
+O_u(\mathbf p_u)
+\prod_{a=1}^{n}J_a^+(\mathbf k_a)
+O_v(\mathbf p_v)
+\right\rangle',
+\qquad
+J_a^+=\xi_a^{+i}J_{a,i}.
+\]
+
+<p>The \(+\) label is therefore fixed by the \(SO(2)_{\mathbf k_a}\) representation, before the auxiliary null-polarization construction is introduced. The reference spinor enters later only as a convenient way of choosing an auxiliary projection \(\epsilon(\eta)\); in the present massless gauge theory the Ward identity then tells us how that projection is related to the definite-helicity observable.</p>
+
+<h2>References</h2>
+<ul>
+<li><b>E. Pajer, arXiv:2010.12818</b>: Sec. 2 and Appendix A define finite-momentum helicity through the \(SO(2)\) little group of spatial \(ISO(3)\). <a href="https://arxiv.org/abs/2010.12818">arXiv</a></li>
+<li><b>H. Lee, D. Baumann, G. L. Pimentel, arXiv:1607.03735</b>: Appendix A decomposes arbitrary spinning fields into helicity components and identifies \(\lambda\) as the helicity component of the spatial spin. <a href="https://arxiv.org/abs/1607.03735">arXiv</a></li>
+<li><b>J. Maldacena, G. L. Pimentel, arXiv:1104.2846</b>: cosmological spinor-helicity and circular polarizations for dS correlators. <a href="https://arxiv.org/abs/1104.2846">arXiv</a></li>
+<li><b>Self-Dual Yang-Mills in AdS\(_4\), arXiv:2608.27731</b>: useful recent comparison for radial-gauge and reference-spinor polarization representatives. <a href="https://arxiv.org/abs/2608.27731">arXiv</a></li>
+</ul>
+
+<p class="small"><b>One-line summary:</b> cosmological helicity is the \(SO(2)_{\mathbf k}\) representation label and needs no reference spinor. The reference spinor \(\eta\) appears only when one solves the auxiliary null-uplift polarization equations \(P\!\cdot\!\epsilon=\epsilon^2=0\); this construction is kinematic and can be used independently of the bulk mass. Gauge invariance, when present, is an additional physical statement about how such auxiliary projections are related.</p>
+</section>
+</main></body></html>
